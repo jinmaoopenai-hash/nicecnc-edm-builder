@@ -1,0 +1,19 @@
+{
+  "name": "nicecnc-edm-builder",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "grapesjs": "^0.22.12",
+    "grapesjs-mjml": "^1.0.7",
+    "mjml-browser": "^4.16.1"
+  },
+  "devDependencies": {
+    "vite": "^7.0.0"
+  }
+}

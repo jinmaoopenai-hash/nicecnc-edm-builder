@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="NICECNC 可拖拽 EDM 编辑器：先预览 HTML，确认后再更新 MJML。" />
+    <title>NICECNC EDM Builder</title>
+  </head>
+  <body>
+    <div id="app">
+      <header class="topbar">
+        <div class="brand"><span class="brand-mark">N</span><span>NICECNC EDM Builder</span></div>
+        <div class="status"><span id="state-dot"></span><span id="state-text">草稿已保存</span></div>
+        <div class="actions">
+          <button id="reset-btn" class="ghost">恢复当前正式版</button>
+          <button id="preview-btn" class="primary">生成 HTML 预览</button>
+          <button id="approve-btn" class="success" disabled>确认并更新 MJML</button>
+          <details class="export-menu">
+            <summary>导出</summary>
+            <button data-export="html">HTML</button>
+            <button data-export="mjml">MJML</button>
+            <button data-export="json">项目 JSON</button>
+          </details>
+        </div>
+      </header>
+      <div class="workspace">
+        <aside class="guide">
+          <p class="eyebrow">单一当前邮件</p>
+          <h1>先预览，再确认</h1>
+          <ol>
+            <li>拖拽或修改邮件内容</li>
+            <li>生成 HTML 预览</li>
+            <li>确认后更新正式 MJML</li>
+          </ol>
+          <div class="note">任何新修改都会让上次预览失效，避免误覆盖。</div>
+        </aside>
+        <main id="gjs"></main>
+      </div>
+    </div>
+
+    <dialog id="preview-dialog">
+      <div class="dialog-head">
+        <div>
+          <p class="eyebrow">审核预览</p>
+          <h2>HTML 邮件预览</h2>
+        </div>
+        <div class="dialog-actions">
+          <button id="desktop-btn" class="active">桌面</button>
+          <button id="mobile-btn">手机</button>
+          <button id="download-preview-btn">下载预览 HTML</button>
+          <button id="close-preview-btn" aria-label="关闭">×</button>
+        </div>
+      </div>
+      <div class="preview-stage"><iframe id="preview-frame" title="邮件 HTML 预览"></iframe></div>
+    </dialog>
+
+    <div id="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
